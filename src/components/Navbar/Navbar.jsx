@@ -67,7 +67,7 @@ export default function Navbar({ categories = [] }) {
               </ul>
             </li>
             <li><Link href="/#about">Về Chúng Tôi</Link></li>
-            <li><Link href="/#contact">Liên Hệ</Link></li>
+            <li><Link href="/contact">Liên Hệ</Link></li>
           </ul>
 
           <div className={styles.actions}>

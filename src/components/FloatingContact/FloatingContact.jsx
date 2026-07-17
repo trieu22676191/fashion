@@ -3,21 +3,24 @@ import styles from "./FloatingContact.module.css";
 export default function FloatingContact() {
   return (
     <div className={styles.floatingContainer}>
-      <a href="https://m.me/" target="_blank" rel="noreferrer" className={styles.iconBtn} aria-label="Liên hệ Facebook">
-        <svg viewBox="0 0 24 24" fill="#1877F2" width="40" height="40">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      {/* Facebook */}
+      <a href="https://www.facebook.com/teerius" target="_blank" rel="noreferrer" className={styles.iconBtn} aria-label="Liên hệ Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+          <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7.5v4H10V22h4v-8.5z" />
         </svg>
       </a>
-      <a href="https://zalo.me/" target="_blank" rel="noreferrer" className={styles.iconBtn} aria-label="Liên hệ Zalo">
-        <svg viewBox="0 0 24 24" fill="#0068FF" width="40" height="40">
-          <circle cx="12" cy="12" r="12" />
-          <text x="12" y="16.5" fill="white" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Zalo</text>
+
+      {/* Zalo */}
+      <a href="https://zalo.me/0362356676" target="_blank" rel="noreferrer" className={styles.iconBtn} aria-label="Liên hệ Zalo">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+          <path d="M21.544 11.049c0-4.638-4.409-8.4-9.843-8.4-5.432 0-9.841 3.762-9.841 8.4 0 4.636 4.409 8.399 9.841 8.399.789 0 1.554-.08 2.29-.232l3.433 2.01c.299.176.666-.024.622-.369l-.364-2.82c1.777-1.402 2.862-3.328 2.862-5.488zm-13.882-1.92h3.292c.32 0 .58.261.58.582 0 .322-.26.582-.58.582h-1.916l2.122 2.502c.162.19.24.428.225.666a1.144 1.144 0 0 1-1.127.97h-3.29c-.322 0-.582-.262-.582-.583 0-.321.26-.582.582-.582h1.918l-2.126-2.503a1.08 1.08 0 0 1-.225-.665c0-.525.426-.949.953-.949h.174zm6.059 4.37h-.826a.582.582 0 0 1 0-1.164h.826c.321 0 .58-.261.58-.582v-.827a.582.582 0 0 1 1.164 0v.827c0 .963-.782 1.746-1.744 1.746zm0-4.37h-.826c-.962 0-1.744.783-1.744 1.747v.826a.582.582 0 0 1-1.164 0v-.826c0-.321.26-.582.582-.582h2.572a.582.582 0 0 1 0 1.163h-.58v.581h-.58v-.581zm2.324 2.572c0 .321-.26.582-.58.582h-.826v-1.164h.826c.32 0 .58.261.58.582z" />
         </svg>
       </a>
-      <a href="tel:0987654321" className={styles.iconBtn} aria-label="Gọi điện thoại">
-        <svg viewBox="0 0 24 24" fill="#00C700" width="40" height="40">
-          <circle cx="12" cy="12" r="12" />
-          <path fill="white" d="M16.5 13.5c-.7-.7-1.7-.7-2.4 0l-1 1c-1.8-.8-3.4-2.4-4.2-4.2l1-1c.7-.7.7-1.7 0-2.4l-2.4-2.4c-.7-.7-1.7-.7-2.4 0l-.6.6c-.6.6-.9 1.5-.7 2.4.6 3.1 2.8 5.9 5.6 7.6 1.8 1 3.9 1.4 5.9 1.2.9-.1 1.7-.5 2.2-1.2l.6-.6c.7-.7.7-1.7 0-2.4l-2.4-2.4z"/>
+
+      {/* Phone */}
+      <a href="tel:0362356676" className={styles.iconBtn} aria-label="Gọi điện thoại">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+          <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
         </svg>
       </a>
     </div>

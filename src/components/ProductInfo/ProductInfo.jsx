@@ -31,7 +31,7 @@ export default function ProductInfo({ product, relatedProducts }) {
           >
             THÊM VÀO GIỎ HÀNG
           </button>
-          <a href="https://zalo.me/" target="_blank" rel="noreferrer" className={styles.contactBtn}>
+          <a href="https://zalo.me/0362356676" target="_blank" rel="noreferrer" className={styles.contactBtn}>
             LIÊN HỆ TƯ VẤN
           </a>
         </div>

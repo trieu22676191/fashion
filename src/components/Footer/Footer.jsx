@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -11,9 +12,9 @@ export default function Footer() {
         <div className={styles.column}>
           <h4 className={styles.title}>Liên Kết</h4>
           <ul className={styles.links}>
-            <li><a href="#collection">Bộ Sưu Tập Mới</a></li>
-            <li><a href="#about">Câu Chuyện Thương Hiệu</a></li>
-            <li><a href="#">Chính Sách Khách Hàng</a></li>
+            <li><Link href="/#collection">Bộ Sưu Tập Mới</Link></li>
+            <li><Link href="/#about">Câu Chuyện Thương Hiệu</Link></li>
+            <li><Link href="/policy">Chính Sách Khách Hàng</Link></li>
           </ul>
         </div>
         <div className={styles.column}>
