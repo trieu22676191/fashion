@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductList from "@/components/ProductList/ProductList";
 import { getCollections, getCollectionBySlug } from "@/lib/sanityQueries";
 import styles from "./page.module.css";
 
@@ -47,11 +47,8 @@ export default async function CollectionPage({ params }) {
             <h1 className="heading-secondary">{collection.title}</h1>
             <p className={styles.sectionDesc}>{collection.description}</p>
           </div>
-          <div className={styles.grid}>
-            {collection.products.map(product => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
+          
+          <ProductList products={collection.products || []} />
         </section>
       </main>
       <Footer />

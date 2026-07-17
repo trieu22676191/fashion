@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductList from "@/components/ProductList/ProductList";
 import { getAllCategories, getCategoryBySlug } from "@/lib/sanityQueries";
 import styles from "../../collections/[slug]/page.module.css";
 
@@ -45,19 +45,10 @@ export default async function CategoryPage({ params }) {
         <section className={`container ${styles.section}`}>
           <div className="text-center">
             <h1 className="heading-secondary">{category.title}</h1>
-            {category.description && <p className={styles.sectionDesc}>{category.description}</p>}
+            <p className={styles.sectionDesc}>{category.description}</p>
           </div>
-          <div className={styles.grid}>
-            {category.products && category.products.length > 0 ? (
-              category.products.map(product => (
-                <ProductCard key={product.id} {...product} />
-              ))
-            ) : (
-              <p style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '2rem' }}>
-                Hiện chưa có sản phẩm nào trong danh mục này.
-              </p>
-            )}
-          </div>
+          
+          <ProductList products={category.products || []} />
         </section>
       </main>
       <Footer />
