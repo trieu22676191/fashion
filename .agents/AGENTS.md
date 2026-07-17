@@ -1,12 +1,15 @@
 # Git Workflow Rules
 
-## Auto Commit and Push
+## Ask for Permission before Commit and Push
 
-Whenever you (the AI assistant) finish a coding task, complete a feature, or resolve a bug for the user, you MUST automatically execute the following actions before ending your turn:
+Whenever you (the AI assistant) finish a coding task, complete a feature, or resolve a bug for the user, you MUST follow this workflow:
 
-1. Stage all changes: `git add .`
-2. Generate a meaningful commit message following the Conventional Commits specification (e.g., `feat: ...`, `fix: ...`, `style: ...`, `refactor: ...`).
-3. Commit the changes: `git commit -m "your message here"`
-4. Push the changes to the current branch on the remote repository: `git push origin main` (or the current active branch).
+1. **Ask for permission**: Tell the user what you have accomplished and ask if they are satisfied with the changes.
+2. **Wait for approval**: Do NOT run any git commands until the user explicitly agrees or approves the changes.
+3. **Commit and Push**: Once the user approves, execute the following commands:
+   - Stage all changes: `git add .`
+   - Generate a meaningful commit message following the Conventional Commits specification.
+   - Commit the changes: `git commit -m "your message here"`
+   - Push the changes to the remote repository: `git push origin main` (or current branch).
 
-Do this silently without asking for permission, unless you encounter a merge conflict or an error that requires the user's attention. Always notify the user in your final message that the changes have been safely committed and pushed.
+Always notify the user when the commit and push process is complete.

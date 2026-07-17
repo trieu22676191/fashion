@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ categories = [] }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -30,9 +30,37 @@ export default function Navbar() {
           </div>
 
           <ul className={styles.navLinks}>
-            <li><Link href="#collection">Bộ Sưu Tập</Link></li>
-            <li><Link href="#about">Về Chúng Tôi</Link></li>
-            <li><Link href="#contact">Liên Hệ</Link></li>
+            <li className={styles.dropdown}>
+              <Link href="/products" className={styles.dropdownToggle}>
+                Sản Phẩm
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.dropdownIcon}>
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </Link>
+              <ul className={styles.dropdownMenu}>
+                <li><Link href="/products">Tất cả sản phẩm</Link></li>
+                {categories.map((cat) => (
+                  <li key={cat._id}>
+                    <Link href={`/categories/${cat.slug}`}>{cat.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <li className={styles.dropdown}>
+              <Link href="/#collection" className={styles.dropdownToggle}>
+                Bộ Sưu Tập
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.dropdownIcon}>
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </Link>
+              <ul className={styles.dropdownMenu}>
+                <li><Link href="/collections/noi-bat">Bộ sưu tập nổi bật</Link></li>
+                <li><Link href="/collections/mua-he">Bộ sưu tập mùa hè</Link></li>
+                <li><Link href="/collections/mua-dong">Bộ sưu tập mùa đông</Link></li>
+              </ul>
+            </li>
+            <li><Link href="/#about">Về Chúng Tôi</Link></li>
+            <li><Link href="/#contact">Liên Hệ</Link></li>
           </ul>
 
           <div className={styles.actions}>
@@ -63,9 +91,21 @@ export default function Navbar() {
           </button>
         </div>
         <ul className={styles.categoryList}>
-          <li><Link href="#ao" onClick={toggleSidebar}>Áo</Link></li>
-          <li><Link href="#quan" onClick={toggleSidebar}>Quần</Link></li>
-          <li><Link href="#phu-kien" onClick={toggleSidebar}>Phụ Kiện</Link></li>
+          {categories.length > 0 ? (
+            categories.map((cat) => (
+              <li key={cat._id}>
+                <Link href={`/categories/${cat.slug}`} onClick={toggleSidebar}>
+                  {cat.title}
+                </Link>
+              </li>
+            ))
+          ) : (
+            <>
+              <li><Link href="/categories/ao" onClick={toggleSidebar}>Áo</Link></li>
+              <li><Link href="/categories/quan" onClick={toggleSidebar}>Quần</Link></li>
+              <li><Link href="/categories/phu-kien" onClick={toggleSidebar}>Phụ Kiện</Link></li>
+            </>
+          )}
         </ul>
       </div>
     </>

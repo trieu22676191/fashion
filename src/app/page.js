@@ -1,39 +1,16 @@
-import Navbar from "@/components/Navbar/Navbar";
+import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import { getCollectionBySlug } from "@/lib/sanityQueries";
 import styles from "./page.module.css";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Váy Lụa Mềm Mại",
-    price: "1,250,000 ₫",
-    imageUrl: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 2,
-    name: "Áo Blazer Thanh Lịch",
-    price: "2,100,000 ₫",
-    imageUrl: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 3,
-    name: "Túi Xách Da Cao Cấp",
-    price: "3,500,000 ₫",
-    imageUrl: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 4,
-    name: "Giày Cao Gót Mũi Nhọn",
-    price: "1,850,000 ₫",
-    imageUrl: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&auto=format&fit=crop&q=80",
-  }
-];
+export default async function Home() {
+  const collection = await getCollectionBySlug("noi-bat");
+  const featuredProducts = collection?.products || [];
 
-export default function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
       
       <main className={styles.main}>
         {/* Hero Section */}

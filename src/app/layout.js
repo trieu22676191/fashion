@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="vi">
-      <body className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="vi" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
         {children}
       </body>
     </html>

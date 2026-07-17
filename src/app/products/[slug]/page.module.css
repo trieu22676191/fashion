@@ -1,0 +1,139 @@
+.main {
+  min-height: 100vh;
+  padding-top: 100px; /* offset for fixed navbar */
+  padding-bottom: var(--spacing-xxl);
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .productContainer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.gallerySection {
+  flex: 1;
+  max-width: 600px;
+}
+
+.infoSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .infoSection {
+    padding-left: var(--spacing-xl);
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.newLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.title {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+}
+
+.price {
+  font-size: 1.1rem;
+  color: var(--color-foreground);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin-bottom: var(--spacing-lg);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.colorInfo {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.addToCartBtn {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.addToCartBtn:hover {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-foreground);
+}
+
+.sectionTitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+.materials {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.extraLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.extraLinks p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.extraLinks p:hover {
+  color: var(--color-foreground);
+}
