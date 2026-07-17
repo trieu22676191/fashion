@@ -1,11 +1,28 @@
-.floatingContainer {
+.fabContainer {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 95px; /* placed above the back to top button */
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fabOptions {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  z-index: 1000;
+  margin-bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.fabContainer:hover .fabOptions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .iconBtn {
@@ -13,6 +30,7 @@
   height: 48px;
   border-radius: 50%;
   background-color: white;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,11 +41,32 @@
 }
 
 .iconBtn:hover {
-  transform: translateY(-3px);
+  transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mainBtn {
+  background-color: var(--color-foreground, #000);
+  color: var(--color-background, #fff);
+}
+
+.mainBtn:hover {
+  background-color: var(--color-primary, #333);
 }
 
 .iconBtn svg {
   display: block;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .fabContainer {
+    bottom: 85px;
+    right: 1.5rem;
+  }
+  
+  .iconBtn {
+    width: 40px;
+    height: 40px;
+  }
 }

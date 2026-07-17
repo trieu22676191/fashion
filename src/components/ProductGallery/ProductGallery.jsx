@@ -8,6 +8,14 @@ export default function ProductGallery({ images }) {
 
   if (!images || images.length === 0) return null;
 
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <div className={styles.gallery}>
       {/* Main Image */}
@@ -17,6 +25,21 @@ export default function ProductGallery({ images }) {
           alt="Product details" 
           className={styles.mainImage} 
         />
+        
+        {images.length > 1 && (
+          <>
+            <button className={`${styles.navBtn} ${styles.prevBtn}`} onClick={prevImage} aria-label="Ảnh trước">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button className={`${styles.navBtn} ${styles.nextBtn}`} onClick={nextImage} aria-label="Ảnh tiếp theo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       {/* Thumbnails */}

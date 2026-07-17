@@ -1,0 +1,40 @@
+.backToTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color var(--transition-fast);
+  z-index: 99;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.backToTopBtn:hover {
+  background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .backToTopBtn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
