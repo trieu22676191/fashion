@@ -2,6 +2,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import { getCollectionBySlug } from "@/lib/sanityQueries";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default async function Home() {
@@ -34,7 +35,7 @@ export default async function Home() {
             ))}
           </div>
           <div className={styles.centerAction}>
-            <button className={styles.btnOutline}>Xem Tất Cả Sản Phẩm</button>
+            <Link href="/products" className={styles.btnOutline}>Xem Tất Cả Sản Phẩm</Link>
           </div>
         </section>
 

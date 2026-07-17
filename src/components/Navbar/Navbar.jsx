@@ -101,7 +101,7 @@ export default function Navbar({ categories = [] }) {
       {/* Sidebar / Drawer */}
       <div className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`}>
         <div className={styles.sidebarHeader}>
-          <h3>Danh mục</h3>
+          <h3>Menu</h3>
           <button className={styles.closeBtn} onClick={toggleSidebar} aria-label="Đóng">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -110,21 +110,10 @@ export default function Navbar({ categories = [] }) {
           </button>
         </div>
         <ul className={styles.categoryList}>
-          {categories.length > 0 ? (
-            categories.map((cat) => (
-              <li key={cat._id}>
-                <Link href={`/categories/${cat.slug}`} onClick={toggleSidebar}>
-                  {cat.title}
-                </Link>
-              </li>
-            ))
-          ) : (
-            <>
-              <li><Link href="/categories/ao" onClick={toggleSidebar}>Áo</Link></li>
-              <li><Link href="/categories/quan" onClick={toggleSidebar}>Quần</Link></li>
-              <li><Link href="/categories/phu-kien" onClick={toggleSidebar}>Phụ Kiện</Link></li>
-            </>
-          )}
+          <li><Link href="/products" onClick={toggleSidebar}>Sản Phẩm</Link></li>
+          <li><Link href="/#collection" onClick={toggleSidebar}>Bộ Sưu Tập</Link></li>
+          <li><Link href="/#about" onClick={toggleSidebar}>Về Chúng Tôi</Link></li>
+          <li><Link href="/contact" onClick={toggleSidebar}>Liên Hệ</Link></li>
         </ul>
       </div>
 

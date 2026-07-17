@@ -25,7 +25,7 @@
 .hamburgerBtn {
   color: var(--color-foreground);
   transition: color var(--transition-fast);
-  display: flex;
+  display: none;
   align-items: center;
 }
 
@@ -253,5 +253,8 @@
 @media (max-width: 768px) {
   .navLinks {
     display: none;
+  }
+  .hamburgerBtn {
+    display: flex;
   }
 }
