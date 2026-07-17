@@ -30,6 +30,9 @@ export const productSchema = defineType({
       name: 'images',
       title: 'Hình Ảnh',
       type: 'array',
+      options: {
+        layout: 'grid',
+      },
       of: [{ type: 'image', options: { hotspot: true } }]
     }),
     defineField({
