@@ -43,8 +43,14 @@
   letter-spacing: 0.05em;
 }
 
-.addToCartBtn {
+.actionButtons {
+  display: flex;
+  gap: var(--spacing-sm);
   width: 100%;
+}
+
+.addToCartBtn {
+  flex: 1;
   padding: var(--spacing-md);
   background-color: transparent;
   color: var(--color-foreground);
@@ -59,6 +65,26 @@
 .addToCartBtn:hover {
   background-color: var(--color-foreground);
   color: var(--color-background);
+}
+
+.contactBtn {
+  flex: 1;
+  padding: var(--spacing-md);
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: 1px solid var(--color-foreground);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  text-align: center;
+  text-decoration: none;
+}
+
+.contactBtn:hover {
+  background-color: transparent;
+  color: var(--color-foreground);
 }
 
 .description {
@@ -103,38 +129,89 @@
   opacity: 0.7;
 }
 
-.interactiveLinks {
+.tabsContainer {
+  margin-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+}
+
+.tabHeaders {
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
   gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+  overflow-x: auto;
+  padding-bottom: 4px; /* Space for scrollbar if needed */
 }
 
-.drawerTriggerBtn {
+/* Hide scrollbar for cleaner look but keep functionality */
+.tabHeaders::-webkit-scrollbar {
+  height: 4px;
+}
+.tabHeaders::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.tabBtn {
   background: none;
-  border: none;
-  padding: 0;
-  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  color: var(--color-foreground);
+  color: var(--color-text-muted);
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  font-weight: 500;
-  transition: color var(--transition-fast);
-  text-align: left;
+  transition: all var(--transition-fast);
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.drawerTriggerBtn:hover {
-  color: var(--color-accent);
+.tabBtn:hover {
+  border-color: var(--color-foreground);
+  color: var(--color-foreground);
+}
+
+.activeTab {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border-color: var(--color-foreground);
+}
+
+.activeTab:hover {
+  background-color: var(--color-text-muted);
+  color: var(--color-background);
+  border-color: var(--color-text-muted);
+}
+
+.tabContent {
+  padding: var(--spacing-md) 0;
+  min-height: 150px;
+}
+
+.tabSection {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tabDesc {
+  font-size: 0.9rem;
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
 }
 
 .extraLinks {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
 }
 
 .extraLinks p {
@@ -147,14 +224,6 @@
 
 .extraLinks p:hover {
   color: var(--color-foreground);
-}
-
-/* Drawer contents styling */
-.drawerDesc {
-  font-size: 0.9rem;
-  color: var(--color-foreground);
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.5;
 }
 
 .sizeTableContainer {

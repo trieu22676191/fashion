@@ -128,14 +128,42 @@
 }
 
 .iconBtn {
+  background: none;
+  border: none;
   color: var(--color-foreground);
-  transition: color var(--transition-fast);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: opacity var(--transition-fast);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .iconBtn:hover {
-  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+.cartIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff3b30;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Sidebar & Overlay */

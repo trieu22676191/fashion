@@ -1,0 +1,283 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-background);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header h2 {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+}
+
+.emptyMessage {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xl);
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.item {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.itemImage {
+  width: 80px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.itemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.itemPrice {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  width: fit-content;
+}
+
+.quantityControl button {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.quantityControl span {
+  font-size: 0.9rem;
+  min-width: 16px;
+  text-align: center;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: fit-content;
+  padding: 0;
+}
+
+.removeBtn:hover {
+  color: var(--color-foreground);
+}
+
+.footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.checkoutBtn {
+  flex: 1;
+  padding: var(--spacing-md);
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color var(--transition-fast);
+}
+
+.checkoutBtn:hover {
+  background-color: var(--color-text-muted);
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.invoiceBtn {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.invoiceBtn:hover {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.invoiceBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hidden Invoice Template */
+.invoiceTemplate {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -9999px; /* Off-screen */
+  width: 600px;
+  background-color: white;
+  color: black;
+  padding: 40px;
+  font-family: var(--font-primary);
+}
+
+.invoiceHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
+}
+
+.invoiceHeader h2 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.1em;
+}
+
+.invoiceHeader p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.invoiceTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.invoiceTable th, .invoiceTable td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.invoiceTable th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.invoiceTable td:last-child, .invoiceTable th:last-child {
+  text-align: right;
+}
+
+.invoiceTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding-top: 15px;
+  border-top: 2px solid black;
+  margin-bottom: 30px;
+}
+
+.invoiceFooter {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}

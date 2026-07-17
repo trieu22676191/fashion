@@ -3,13 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+import CartDrawer from "../CartDrawer/CartDrawer";
+import SearchModal from "../SearchModal/SearchModal";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar({ categories = [] }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { cartItems, setIsCartOpen } = useCart();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <>
@@ -64,11 +71,23 @@ export default function Navbar({ categories = [] }) {
           </ul>
 
           <div className={styles.actions}>
-            <button className={styles.iconBtn} aria-label="Tìm kiếm">
+            <button className={styles.iconBtn} aria-label="Tìm kiếm" onClick={() => setIsSearchOpen(true)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
+            </button>
+            <button className={styles.iconBtn} aria-label="Giỏ hàng" onClick={() => setIsCartOpen(true)}>
+              <div className={styles.cartIconWrapper}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                {cartItemCount > 0 && (
+                  <span className={styles.cartBadge}>{cartItemCount}</span>
+                )}
+              </div>
             </button>
           </div>
         </div>
@@ -108,6 +127,9 @@ export default function Navbar({ categories = [] }) {
           )}
         </ul>
       </div>
+
+      <CartDrawer />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 }
