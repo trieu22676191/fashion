@@ -113,26 +113,28 @@ export const getAllProductsQuery = groq`
 `;
 
 // API Functions
+const options = { next: { revalidate: 30 } }; // Revalidate every 30 seconds
+
 export async function getCollections() {
-  return await client.fetch(getCollectionsQuery);
+  return await client.fetch(getCollectionsQuery, {}, options);
 }
 
 export async function getCollectionBySlug(slug) {
-  return await client.fetch(getCollectionBySlugQuery, { slug });
+  return await client.fetch(getCollectionBySlugQuery, { slug }, options);
 }
 
 export async function getProductBySlug(slug) {
-  return await client.fetch(getProductBySlugQuery, { slug });
+  return await client.fetch(getProductBySlugQuery, { slug }, options);
 }
 
 export async function getAllCategories() {
-  return await client.fetch(getCategoriesQuery);
+  return await client.fetch(getCategoriesQuery, {}, options);
 }
 
 export async function getCategoryBySlug(slug) {
-  return await client.fetch(getCategoryBySlugQuery, { slug });
+  return await client.fetch(getCategoryBySlugQuery, { slug }, options);
 }
 
 export async function getAllProducts() {
-  return await client.fetch(getAllProductsQuery);
+  return await client.fetch(getAllProductsQuery, {}, options);
 }
