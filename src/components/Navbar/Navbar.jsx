@@ -7,7 +7,7 @@ import CartDrawer from "../CartDrawer/CartDrawer";
 import SearchModal from "../SearchModal/SearchModal";
 import { useCart } from "@/context/CartContext";
 
-export default function Navbar({ categories = [] }) {
+export default function Navbar({ categories = [], collections = [] }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { cartItems, setIsCartOpen } = useCart();
@@ -61,9 +61,11 @@ export default function Navbar({ categories = [] }) {
                 </svg>
               </Link>
               <ul className={styles.dropdownMenu}>
-                <li><Link href="/collections/noi-bat">Bộ sưu tập nổi bật</Link></li>
-                <li><Link href="/collections/mua-he">Bộ sưu tập mùa hè</Link></li>
-                <li><Link href="/collections/mua-dong">Bộ sưu tập mùa đông</Link></li>
+                {collections.map((col) => (
+                  <li key={col._id}>
+                    <Link href={`/collections/${col.slug}`}>{col.title}</Link>
+                  </li>
+                ))}
               </ul>
             </li>
             <li><Link href="/#about">Về Chúng Tôi</Link></li>

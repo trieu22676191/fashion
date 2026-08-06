@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/genai": "^2.16.0",
     "@sanity/image-url": "^2.1.1",
+    "@sanity/ui": "^3.5.1",
     "@sanity/vision": "^5.31.1",
     "framer-motion": "^12.42.2",
     "html2canvas": "^1.4.1",

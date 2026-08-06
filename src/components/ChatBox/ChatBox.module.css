@@ -1,0 +1,257 @@
+.launcher {
+  position: fixed;
+  bottom: 95px;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-fast);
+  z-index: 1000;
+}
+
+.launcher:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .launcher {
+    bottom: 79px;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: var(--spacing-sm);
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.clearBtn:hover:not(:disabled) {
+  color: var(--color-foreground);
+}
+
+.clearBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.suggestionChip {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--color-foreground);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  text-align: left;
+}
+
+.suggestionChip:hover {
+  border-color: var(--color-foreground);
+  background-color: var(--color-secondary);
+}
+
+.chatBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.messageList {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.messageRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.userRow {
+  align-items: flex-end;
+}
+
+.assistantRow {
+  align-items: flex-start;
+}
+
+.bubble {
+  max-width: 85%;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.userBubble {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border-bottom-right-radius: 2px;
+}
+
+.assistantBubble {
+  background-color: var(--color-secondary);
+  color: var(--color-foreground);
+  border-bottom-left-radius: 2px;
+}
+
+.typing {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  width: 100%;
+}
+
+.productCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.productCard img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+}
+
+.productName {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.productPrice {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.productActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.detailBtn,
+.addBtn {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 0.72rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.detailBtn {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+}
+
+.detailBtn:hover {
+  border-color: var(--color-foreground);
+}
+
+.addBtn {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: none;
+}
+
+.addBtn:hover {
+  background-color: var(--color-primary);
+}
+
+.inputRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.input {
+  flex: 1;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-foreground);
+}
+
+.sendBtn {
+  padding: 0.65rem 1.1rem;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.sendBtn:hover:not(:disabled) {
+  background-color: var(--color-primary);
+}
+
+.sendBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

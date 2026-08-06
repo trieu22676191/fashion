@@ -9,7 +9,7 @@ export async function searchProducts(query) {
   const searchStr = `*${query.trim()}*`;
   
   const searchProductsQuery = groq`
-    *[_type == "product" && name match $searchStr] | order(_createdAt desc) [0...10] {
+    *[_type == "product" && name match $searchStr && isActive != false] | order(_createdAt desc) [0...10] {
       _id,
       "id": coalesce(slug.current, _id),
       name,

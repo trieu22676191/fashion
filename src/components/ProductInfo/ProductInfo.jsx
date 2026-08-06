@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./ProductInfo.module.css";
 import { useCart } from "@/context/CartContext";
+import { useChat } from "@/context/ChatContext";
 
 export default function ProductInfo({ product, relatedProducts }) {
   const [activeTab, setActiveTab] = useState("description");
   const { addToCart } = useCart();
+  const { setCurrentProduct } = useChat();
+
+  useEffect(() => {
+    setCurrentProduct({ id: product.id, name: product.name });
+    return () => setCurrentProduct(null);
+  }, [product.id, product.name, setCurrentProduct]);
 
   return (
     <>

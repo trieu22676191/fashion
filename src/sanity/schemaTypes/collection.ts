@@ -25,6 +25,13 @@ export const collectionSchema = defineType({
       name: 'description',
       title: 'Mô tả',
       type: 'text',
+    }),
+    defineField({
+      name: 'isActive',
+      title: 'Hiển thị trên trang web',
+      description: 'Tắt để ẩn bộ sưu tập này khỏi trang web (menu, trang chủ, trang chi tiết) mà không cần xóa.',
+      type: 'boolean',
+      initialValue: true,
     })
   ],
 })

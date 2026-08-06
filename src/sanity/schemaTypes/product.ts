@@ -46,6 +46,13 @@ export const productSchema = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'isActive',
+      title: 'Hiển thị trên trang web',
+      description: 'Tắt để ẩn sản phẩm này khỏi trang web (danh sách, tìm kiếm, trợ lý AI) mà không cần xóa.',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
       name: 'collection',
       title: 'Thuộc Bộ Sưu Tập',
       type: 'reference',

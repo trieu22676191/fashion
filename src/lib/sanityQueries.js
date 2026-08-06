@@ -12,12 +12,12 @@ export const client = createClient({
 
 // Get all collections
 export const getCollectionsQuery = groq`
-  *[_type == "collection"] {
+  *[_type == "collection" && isActive != false] {
     _id,
     title,
     "slug": slug.current,
     description,
-    "products": *[_type == "product" && references(^._id)] | order(_createdAt asc) {
+    "products": *[_type == "product" && references(^._id) && isActive != false] | order(_createdAt asc) {
       _id,
       "id": coalesce(slug.current, _id),
       name,
@@ -31,12 +31,12 @@ export const getCollectionsQuery = groq`
 
 // Get a single collection by slug
 export const getCollectionBySlugQuery = groq`
-  *[_type == "collection" && slug.current == $slug][0] {
+  *[_type == "collection" && slug.current == $slug && isActive != false][0] {
     _id,
     title,
     "slug": slug.current,
     description,
-    "products": *[_type == "product" && references(^._id)] | order(_createdAt asc) {
+    "products": *[_type == "product" && references(^._id) && isActive != false] | order(_createdAt asc) {
       _id,
       "id": coalesce(slug.current, _id),
       name,
@@ -50,7 +50,7 @@ export const getCollectionBySlugQuery = groq`
 
 // Get a single product by Slug
 export const getProductBySlugQuery = groq`
-  *[_type == "product" && (slug.current == $slug || _id == $slug)][0] {
+  *[_type == "product" && (slug.current == $slug || _id == $slug) && isActive != false][0] {
     _id,
     "id": coalesce(slug.current, _id),
     name,
@@ -60,7 +60,7 @@ export const getProductBySlugQuery = groq`
     color,
     sizeGuide,
     careDetails,
-    "relatedProducts": relatedProducts[]->{
+    "relatedProducts": relatedProducts[]->[isActive != false]{
       _id,
       "id": coalesce(slug.current, _id),
       name,
@@ -72,7 +72,7 @@ export const getProductBySlugQuery = groq`
 
 // Get all categories
 export const getCategoriesQuery = groq`
-  *[_type == "category"] {
+  *[_type == "category" && isActive != false] {
     _id,
     title,
     "slug": slug.current,
@@ -82,12 +82,12 @@ export const getCategoriesQuery = groq`
 
 // Get a single category by slug and its products
 export const getCategoryBySlugQuery = groq`
-  *[_type == "category" && slug.current == $slug][0] {
+  *[_type == "category" && slug.current == $slug && isActive != false][0] {
     _id,
     title,
     "slug": slug.current,
     description,
-    "products": *[_type == "product" && references(^._id)] | order(_createdAt asc) {
+    "products": *[_type == "product" && references(^._id) && isActive != false] | order(_createdAt asc) {
       _id,
       "id": coalesce(slug.current, _id),
       name,
@@ -101,7 +101,7 @@ export const getCategoryBySlugQuery = groq`
 
 // Get all products
 export const getAllProductsQuery = groq`
-  *[_type == "product"] | order(_createdAt desc) {
+  *[_type == "product" && isActive != false] | order(_createdAt desc) {
     _id,
     "id": coalesce(slug.current, _id),
     name,

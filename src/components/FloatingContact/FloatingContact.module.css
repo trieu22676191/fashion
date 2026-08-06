@@ -1,6 +1,6 @@
 .fabContainer {
   position: fixed;
-  bottom: 95px; /* placed above the back to top button */
+  bottom: 158px; /* placed above the AI chat button, which sits above the back to top button */
   right: 32px;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@
 
 @media (max-width: 768px) {
   .fabContainer {
-    bottom: 85px;
+    bottom: 134px;
     right: 1.5rem;
   }
   

@@ -26,6 +26,13 @@ export default defineType({
       title: 'Mô Tả',
       type: 'text',
     }),
+    defineField({
+      name: 'isActive',
+      title: 'Hiển thị trên trang web',
+      description: 'Tắt để ẩn danh mục này khỏi trang web (menu, danh sách) mà không cần xóa.',
+      type: 'boolean',
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {
