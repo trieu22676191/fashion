@@ -72,11 +72,9 @@ export function TogglableDocumentList({ options }: Props) {
 
   if (error) {
     return (
-      <Box padding={4}>
-        <Text size={1} tone="critical">
-          {error}
-        </Text>
-      </Box>
+      <Card padding={4} tone="critical">
+        <Text size={1}>{error}</Text>
+      </Card>
     );
   }
 
@@ -109,7 +107,7 @@ export function TogglableDocumentList({ options }: Props) {
             <Card key={item._id} radius={2} padding={2} tone={active ? "default" : "transparent"}>
               <Flex align="center" justify="space-between">
                 <Box flex={1}>
-                  <ChildLink childId={item._id} style={{ textDecoration: "none" }}>
+                  <ChildLink childId={item._id}>
                     <Text size={1} muted={!active}>
                       {item.label || "(Không có tên)"}
                     </Text>
