@@ -60,7 +60,7 @@ export const getProductBySlugQuery = groq`
     color,
     sizeGuide,
     careDetails,
-    "relatedProducts": relatedProducts[]->[isActive != false]{
+    "relatedProducts": *[_type == "product" && _id in ^.relatedProducts[]._ref && isActive != false] {
       _id,
       "id": coalesce(slug.current, _id),
       name,
